@@ -16,10 +16,10 @@ The function should:
 */
 
 
-function createMenuItem(/*Your code here*/){
-  /*Your code here*/
+function createMenuItem(name, price, category){
+  return{name, price, category}
 }
-
+// console.log(createMenuItem('Danish', 3, 'Breakfast'))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -31,6 +31,12 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+const pizza = createMenuItem('Pizza Slice', 4, 'Lunch');
+const mac = createMenuItem('Mac & Cheese', 5, 'Lunch/Dinner');
+const friedChicken = createMenuItem('Fried Chicken', 7, 'Lunch/Dinner');
+console.log(pizza)
+console.log(mac)
+console.log(friedChicken)
 
 
 
@@ -51,8 +57,15 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function (str){
+    if(str === 'teacher' || str === 'student'){
+      return this.price = 13.5
+    } else if(str === 'public'){
+      return this.price = 16.2
+    }
+  }
 }
+
 
 
 
@@ -72,6 +85,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
+console.log(reviews[5].feedback)
 
 
 
@@ -80,7 +94,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
+reviews[7].feedback =  "this place is chill with really cool people, great for getting work done on weekdays"
+console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -95,8 +110,10 @@ Use the addReview function below to do the following:
 */
 
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(reviews, name, rating, feedback){
+   reviews.push({name, rating, feedback})
+
+   return reviews
 }
 
 
@@ -112,10 +129,12 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-}
+function getReviewByIndex(arr, ind) {
+  
 
+  return `${arr[ind].name} gave the restaurant a ${arr[ind].rating} star review, and their feedback was: ${arr[ind].feedback}`
+}
+console.log(getReviewByIndex(reviews, 0))
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -131,8 +150,8 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(arr) {
+  return `${arr[arr.length - 1].name} gave the restaurant a ${arr[arr.length - 1].rating} star review, and their feedback was: ${arr[arr.length - 1].feedback}`
 } 
 
 
